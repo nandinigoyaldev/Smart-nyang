@@ -7,7 +7,6 @@
   "scripts": {
     "start": "electron electron/main.js",
     "dev": "electron electron/main.js",
-    "build": "node -e \"console.log('Vercel Web Build: SUCCESS!')\"",
     "build:mac": "electron-builder --mac",
     "build:win": "electron-builder --win",
     "dist": "electron-builder --mac --win",

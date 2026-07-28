@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "namyang-pets-web",
+  "outputDirectory": ".",
   "cleanUrls": true,
   "headers": [
     {
