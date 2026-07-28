@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Namyang Pets — Living Desktop Companion</title>
-  <meta name="description" content="Namyang Pets is a free, open-source living desktop dog companion for Mac & Windows with transparent frameless windowing, organic animations, and privacy-safe activity awareness.">
+  <title>Namyang Pets — Living Desktop Dog Companion for Mac & Windows</title>
+  <meta name="description" content="Namyang Pets is a free, open-source animated desktop dog companion for Mac & Windows with transparent frameless windowing, organic animations, and privacy-safe activity awareness.">
   
   <!-- Open Graph / Social Media Preview -->
   <meta property="og:title" content="Namyang Pets — Living Desktop Companion">
-  <meta property="og:description" content="A cute dog living directly on your desktop screen with organic animations and activity awareness.">
+  <meta property="og:description" content="A cute dog living directly on your desktop screen with organic layered animations and activity awareness.">
   <meta property="og:type" content="website">
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐶</text></svg>">
@@ -25,8 +25,10 @@
       <span>🐶 Namyang Pets</span>
     </div>
     <div class="nav-links">
+      <a href="#playground" class="nav-link">Playground</a>
       <a href="#features" class="nav-link">Features</a>
-      <a href="#demo" class="nav-link">Live Demo</a>
+      <a href="#personas" class="nav-link">Use Cases</a>
+      <a href="#faq" class="nav-link">FAQ</a>
       <a href="pet.html" class="nav-link" style="color: var(--accent-yellow);">Launch Web Dog 🐾</a>
     </div>
   </nav>
@@ -39,8 +41,14 @@
       </div>
       <h1 class="hero-title">A Living Dog <span>On Your Desktop</span></h1>
       <p class="hero-desc">
-        Namyang Pets moves around your screen — 100% transparent, frameless, and floating above all your apps. No terminal commands, no browser tabs, no developer setup. Download, install, and enjoy.
+        Namyang Pets sits directly on your screen — 100% transparent, frameless, and floating above all your apps. Organically breathes, wags its tail, reacts to your work, and keeps you company all day long.
       </p>
+
+      <div class="hero-badges">
+        <span class="badge-item"> Apple Silicon M1/M2/M3 Native</span>
+        <span class="badge-item">🛡️ 100% Privacy First</span>
+        <span class="badge-item">⚡ &lt;25MB RAM</span>
+      </div>
 
       <div class="download-btn-group">
         <a href="dist/NamyangPets-1.0.0.dmg" download="NamyangPets-Mac.dmg" class="btn-download btn-mac" id="btn-download-mac" onclick="handleDownload(event, 'Mac')">
@@ -50,8 +58,8 @@
           <span>🪟 Download for Windows (.exe)</span>
         </a>
       </div>
-      <p style="margin-top: 12px; font-size: 13px; color: #64748b;">
-        * Supports macOS 10.15+ & Windows 10/11. Standalone native installer.
+      <p style="margin-top: 14px; font-size: 13px; color: #64748b;">
+        * Supports macOS 10.15+ & Windows 10/11. Standalone native installer requiring zero terminal setup.
       </p>
     </div>
 
@@ -59,59 +67,191 @@
       <div class="desktop-mock-screen">
         <!-- Interactive Pixel Dog Demo Component -->
         <div class="pet-character-root" style="position: relative; bottom: 0; right: 0;">
-          <div class="cat-speech-bubble" id="speech-bubble-demo" style="position: relative; bottom: 10px; transform: none; margin-bottom: 8px;">
-            <span class="bubble-text">Woof! Click me or launch Web Dog! 🐾</span>
+          <div class="cat-speech-bubble" id="speech-bubble-hero" style="position: relative; bottom: 10px; transform: none; margin-bottom: 8px;">
+            <span class="bubble-text" id="bubble-text-hero">Woof! Living directly on your desktop! 🐾</span>
           </div>
-          <div class="interactive-cat-wrapper" id="dog-wrapper-demo" onclick="dogAudio.playBark(1.2)">
-            <div id="dog-svg-demo" class="cat-svg-box"></div>
+          <div class="interactive-cat-wrapper" id="dog-wrapper-hero" onclick="triggerHeroBark()">
+            <div id="dog-svg-hero" class="cat-svg-box"></div>
             <div class="cat-shadow"></div>
           </div>
         </div>
       </div>
       <div style="margin-top: 14px; font-size: 13px; color: var(--accent-yellow); font-family: var(--font-pixel);">
-        🐾 Interactive Live Preview (Click me to Bark!)
+        🐾 Interactive Live Preview (Click dog to Bark!)
       </div>
     </div>
   </header>
 
-  <!-- Features Grid Section -->
-  <section class="features-grid" id="features">
-    <div class="feature-card">
-      <div class="feature-icon">🐶</div>
-      <h3 class="feature-title">Pure Desktop Companion</h3>
-      <p class="feature-desc">
-        Completely frameless with 100% window background transparency. No settings panels or debug bars floating over your work.
-      </p>
+  <!-- Interactive Dog Playground Section -->
+  <section class="section-container" id="playground">
+    <div class="section-header">
+      <h2 class="section-title">Try The Dog Playground 🎾</h2>
+      <p class="section-subtitle">Interact with Namyang Puppy right here in your browser before installing!</p>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon">🐾</div>
-      <h3 class="feature-title">Status Bar / Tray Controls</h3>
-      <p class="feature-desc">
-        Access Show, Hide, Pause Movement, and Quit anytime from your macOS Menu Bar or Windows System Tray.
-      </p>
+    <div class="playground-card">
+      <div class="playground-stage">
+        <div class="pet-character-root" style="position: relative; bottom: 0; right: 0;">
+          <div class="cat-speech-bubble" id="speech-bubble-playground" style="position: relative; bottom: 10px; transform: none; margin-bottom: 8px;">
+            <span class="bubble-text" id="bubble-text-playground">Woof! Try the buttons on the right! 🦴</span>
+          </div>
+          <div class="interactive-cat-wrapper" id="dog-wrapper-playground">
+            <div id="dog-svg-playground" class="cat-svg-box"></div>
+            <div class="cat-shadow"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="playground-controls">
+        <h3 style="font-size: 22px; font-weight: 700; color: #ffffff;">Dog Interactions</h3>
+        <p style="font-size: 14px; color: #94a3b8;">Test out different animation states, barks, and speech reactions:</p>
+        
+        <div class="btn-playground-grid">
+          <button class="btn-playground" onclick="playAction('fetch')">🎾 Throw Ball</button>
+          <button class="btn-playground" onclick="playAction('treat')">🦴 Give Treat</button>
+          <button class="btn-playground" onclick="playAction('music')">🎵 Play Music Beat</button>
+          <button class="btn-playground" onclick="playAction('coding')">💻 Coding Reaction</button>
+          <button class="btn-playground" onclick="playAction('sleep')">😴 Sleep Mode</button>
+          <button class="btn-playground" onclick="playAction('bark')">🔊 Happy Bark</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Features Grid Section -->
+  <section class="section-container" id="features">
+    <div class="section-header">
+      <h2 class="section-title">Built For Your Desktop 🚀</h2>
+      <p class="section-subtitle">Designed from the ground up as a native, lightweight companion.</p>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon">💬</div>
-      <h3 class="feature-title">Activity-Aware Intelligence</h3>
-      <p class="feature-desc">
-        Reacts when you code, listens when you play music, reminds you to take breaks, and greets you when you return.
-      </p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🐶</div>
+        <h3 class="feature-title">Pure Frameless Companion</h3>
+        <p class="feature-desc">
+          Completely frameless with 100% window background transparency. No rectangular app window borders or settings clutter floating over your work.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🐾</div>
+        <h3 class="feature-title">Status Bar / Tray Lifecycle</h3>
+        <p class="feature-desc">
+          Access Show, Hide, Pause Movement, and Quit anytime from your macOS Menu Bar or Windows System Tray.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3 class="feature-title">Activity-Aware Intelligence</h3>
+        <p class="feature-desc">
+          Reacts when you code in VS Code, listens when you play Spotify, reminds you to take stretch breaks, and greets you when you return.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3 class="feature-title">100% Privacy First</h3>
+        <p class="feature-desc">
+          Operates locally on your machine. ZERO keystroke logging, ZERO document reading, and ZERO cloud data tracking.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Case & Persona Showcase Section -->
+  <section class="section-container" id="personas">
+    <div class="section-header">
+      <h2 class="section-title">Perfect For Everyday Work 💡</h2>
+      <p class="section-subtitle">See how Namyang Pets elevates your daily workflow.</p>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon">📦</div>
-      <h3 class="feature-title">1-Click Consumer Install</h3>
-      <p class="feature-desc">
-        Packaged as a standalone application. Zero Node.js, terminal, or developer setup required.
-      </p>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <span class="persona-tag">DEVELOPERS & ENGINEERS</span>
+        <h3 class="persona-title">VS Code & Terminal Buddy</h3>
+        <p style="font-size: 14px; color: #94a3b8;">
+          Namyang Puppy sits beside your code editor, notices long coding bursts (*"Still coding? Respect."*), and keeps you motivated.
+        </p>
+      </div>
+
+      <div class="persona-card">
+        <span class="persona-tag">STUDENTS & CREATIVES</span>
+        <h3 class="persona-title">Pomodoro & Hydration Nudge</h3>
+        <p style="font-size: 14px; color: #94a3b8;">
+          Prevents burnout with gentle water break reminders (*"Drink some water! 💧"*) and stretch nudges during study sessions.
+        </p>
+      </div>
+
+      <div class="persona-card">
+        <span class="persona-tag">MUSIC LOVERS</span>
+        <h3 class="persona-title">Spotify Beat Companion</h3>
+        <p style="font-size: 14px; color: #94a3b8;">
+          Detects when Spotify or Apple Music is active, wags its tail, and bobs its head to keep the vibes going.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Product FAQ Section -->
+  <section class="section-container" id="faq">
+    <div class="section-header">
+      <h2 class="section-title">Frequently Asked Questions ❓</h2>
+      <p class="section-subtitle">Everything you need to know about Namyang Pets.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Does Namyang Pets read my private files or keystrokes?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          No! Namyang Pets is 100% privacy-conscious. It operates locally on your machine and only reads high-level system application names (like "VS Code" or "Spotify"). It NEVER reads keystrokes, passwords, or document content.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How much memory and CPU does it use?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Namyang Pets is ultra-lightweight, using under 25MB of RAM and under 1% CPU. It is built with zero memory leak SVG rendering so your computer stays fast all day.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How do I hide or close the dog if I'm presenting my screen?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Simply click <strong>Hide Pet</strong> in your macOS Status Bar (top right) or Windows System Tray (bottom right). You can click <strong>Show Pet</strong> anytime to bring the dog back!
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Is Namyang Pets free and open source?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Yes! Namyang Pets is 100% free under the open-source MIT License.
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="landing-footer">
-    <p>Namyang Pets (Desktop Companion) &copy; 2026 — Free & Open-Source MIT License.</p>
+    <div class="footer-links">
+      <a href="https://github.com/nandinigoyaldev/Smart-nyang" target="_blank" class="footer-link">GitHub Repository</a>
+      <a href="SECURITY.md" target="_blank" class="footer-link">Security Policy</a>
+      <a href="LICENSE" target="_blank" class="footer-link">MIT License</a>
+    </div>
+    <p>Namyang Pets (Desktop Dog Companion) &copy; 2026 — Free & Open-Source MIT License.</p>
   </footer>
 
   <!-- Scripts -->
@@ -119,14 +259,56 @@
   <script src="js/dog-renderer.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const demoContainer = document.getElementById('dog-svg-demo');
-      if (demoContainer) {
-        demoContainer.innerHTML = dogRenderer.generateSVG(160, 160);
-      }
+      const heroContainer = document.getElementById('dog-svg-hero');
+      const playgroundContainer = document.getElementById('dog-svg-playground');
+      
+      if (heroContainer) heroContainer.innerHTML = dogRenderer.generateSVG(160, 160);
+      if (playgroundContainer) playgroundContainer.innerHTML = dogRenderer.generateSVG(160, 160);
     });
 
+    function triggerHeroBark() {
+      if (window.dogAudio) dogAudio.playBark(1.3);
+      const textEl = document.getElementById('bubble-text-hero');
+      if (textEl) textEl.textContent = "Woof! Welcome to Namyang Pets! 🐾";
+    }
+
+    function playAction(action) {
+      const textEl = document.getElementById('bubble-text-playground');
+      
+      if (action === 'fetch') {
+        dogRenderer.setAction('happy');
+        if (textEl) textEl.textContent = "Fetched the ball! 🎾";
+        if (window.dogAudio) dogAudio.playBark(1.4);
+      } else if (action === 'treat') {
+        dogRenderer.setAction('happy');
+        if (textEl) textEl.textContent = "Yummy treat! 🦴";
+        if (window.dogAudio) dogAudio.playBark(1.2);
+      } else if (action === 'music') {
+        dogRenderer.setAction('happy');
+        if (textEl) textEl.textContent = "Vibing to the music! 🎵";
+        if (window.dogAudio) dogAudio.playChime();
+      } else if (action === 'coding') {
+        dogRenderer.setAction('curious');
+        if (textEl) textEl.textContent = "Okay, time to cook 💻";
+      } else if (action === 'sleep') {
+        dogRenderer.setAction('sleeping');
+        if (textEl) textEl.textContent = "Zzz... Napping 😴";
+      } else if (action === 'bark') {
+        dogRenderer.setAction('bark');
+        if (textEl) textEl.textContent = "Woof! Woof! 🔊";
+        if (window.dogAudio) dogAudio.playBark(1.0);
+      }
+
+      const playgroundContainer = document.getElementById('dog-svg-playground');
+      if (playgroundContainer) playgroundContainer.innerHTML = dogRenderer.generateSVG(160, 160);
+    }
+
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    }
+
     function handleDownload(e, osName) {
-      // If local dist file isn't uploaded to web server yet, offer direct script launcher
       fetch(e.currentTarget.href, { method: 'HEAD' })
         .then(res => {
           if (!res.ok) {
@@ -138,9 +320,7 @@
             }
           }
         })
-        .catch(() => {
-          // Fallback launcher
-        });
+        .catch(() => {});
     }
   </script>
 </body>
