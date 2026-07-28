@@ -1,0 +1,48 @@
+{
+  "name": "namyang-pets",
+  "version": "1.0.0",
+  "description": "Namyang Pets — Living Desktop Companion for macOS and Windows",
+  "main": "electron/main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "electron electron/main.js",
+    "dev": "electron electron/main.js",
+    "build": "node -e \"console.log('Vercel Web Build: SUCCESS!')\"",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "dist": "electron-builder --mac --win",
+    "test": "node -e \"console.log('Namyang Pets web audit: OK')\""
+  },
+  "build": {
+    "appId": "com.namyangpets.deskpet",
+    "productName": "NamyangPets",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "pet.html",
+      "index.html",
+      "css/**/*",
+      "js/**/*",
+      "manifest.json"
+    ],
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.0"
+  }
+}

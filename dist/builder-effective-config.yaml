@@ -1,0 +1,23 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.namyangpets.deskpet
+productName: NamyangPets
+files:
+  - filter:
+      - electron/**/*
+      - pet.html
+      - index.html
+      - css/**/*
+      - js/**/*
+      - manifest.json
+mac:
+  category: public.app-category.entertainment
+  target:
+    - dmg
+    - zip
+win:
+  target:
+    - nsis
+    - portable
+electronVersion: 28.3.3

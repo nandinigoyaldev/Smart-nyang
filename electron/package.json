@@ -1,0 +1,12 @@
+{
+  "name": "smartnyang-desktop",
+  "version": "1.0.0",
+  "description": "SmartNyang Native Frameless Desktop Launcher for Mac & Windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^28.0.0"
+  }
+}

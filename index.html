@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Namyang Pets — Living Desktop Companion</title>
+  <meta name="description" content="Namyang Pets is a free, open-source living desktop dog companion for Mac & Windows with transparent frameless windowing, organic animations, and privacy-safe activity awareness.">
+  
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:title" content="Namyang Pets — Living Desktop Companion">
+  <meta property="og:description" content="A cute dog living directly on your desktop screen with organic animations and activity awareness.">
+  <meta property="og:type" content="website">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐶</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="landing-page-body">
+
+  <!-- Header / Navigation -->
+  <nav class="landing-nav">
+    <div class="brand-logo">
+      <span>🐶 Namyang Pets</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#demo" class="nav-link">Live Demo</a>
+      <a href="pet.html" class="nav-link" style="color: var(--accent-yellow);">Launch Web Dog 🐾</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-text-col">
+      <div class="hero-tagline">
+        <span>✨ Standalone Desktop Companion</span>
+      </div>
+      <h1 class="hero-title">A Living Dog <span>On Your Desktop</span></h1>
+      <p class="hero-desc">
+        Namyang Pets moves around your screen — 100% transparent, frameless, and floating above all your apps. No terminal commands, no browser tabs, no developer setup. Download, install, and enjoy.
+      </p>
+
+      <div class="download-btn-group">
+        <a href="dist/NamyangPets-1.0.0.dmg" download="NamyangPets-Mac.dmg" class="btn-download btn-mac" id="btn-download-mac" onclick="handleDownload(event, 'Mac')">
+          <span> Download for Mac (.dmg)</span>
+        </a>
+        <a href="dist/NamyangPets-1.0.0.exe" download="NamyangPets-Windows.exe" class="btn-download btn-win" id="btn-download-win" onclick="handleDownload(event, 'Windows')">
+          <span>🪟 Download for Windows (.exe)</span>
+        </a>
+      </div>
+      <p style="margin-top: 12px; font-size: 13px; color: #64748b;">
+        * Supports macOS 10.15+ & Windows 10/11. Standalone native installer.
+      </p>
+    </div>
+
+    <div class="hero-preview-box" id="demo">
+      <div class="desktop-mock-screen">
+        <!-- Interactive Pixel Dog Demo Component -->
+        <div class="pet-character-root" style="position: relative; bottom: 0; right: 0;">
+          <div class="cat-speech-bubble" id="speech-bubble-demo" style="position: relative; bottom: 10px; transform: none; margin-bottom: 8px;">
+            <span class="bubble-text">Woof! Click me or launch Web Dog! 🐾</span>
+          </div>
+          <div class="interactive-cat-wrapper" id="dog-wrapper-demo" onclick="dogAudio.playBark(1.2)">
+            <div id="dog-svg-demo" class="cat-svg-box"></div>
+            <div class="cat-shadow"></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 14px; font-size: 13px; color: var(--accent-yellow); font-family: var(--font-pixel);">
+        🐾 Interactive Live Preview (Click me to Bark!)
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Grid Section -->
+  <section class="features-grid" id="features">
+    <div class="feature-card">
+      <div class="feature-icon">🐶</div>
+      <h3 class="feature-title">Pure Desktop Companion</h3>
+      <p class="feature-desc">
+        Completely frameless with 100% window background transparency. No settings panels or debug bars floating over your work.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🐾</div>
+      <h3 class="feature-title">Status Bar / Tray Controls</h3>
+      <p class="feature-desc">
+        Access Show, Hide, Pause Movement, and Quit anytime from your macOS Menu Bar or Windows System Tray.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <h3 class="feature-title">Activity-Aware Intelligence</h3>
+      <p class="feature-desc">
+        Reacts when you code, listens when you play music, reminds you to take breaks, and greets you when you return.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📦</div>
+      <h3 class="feature-title">1-Click Consumer Install</h3>
+      <p class="feature-desc">
+        Packaged as a standalone application. Zero Node.js, terminal, or developer setup required.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <p>Namyang Pets (Desktop Companion) &copy; 2026 — Free & Open-Source MIT License.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/dog-audio.js"></script>
+  <script src="js/dog-renderer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const demoContainer = document.getElementById('dog-svg-demo');
+      if (demoContainer) {
+        demoContainer.innerHTML = dogRenderer.generateSVG(160, 160);
+      }
+    });
+
+    function handleDownload(e, osName) {
+      // If local dist file isn't uploaded to web server yet, offer direct script launcher
+      fetch(e.currentTarget.href, { method: 'HEAD' })
+        .then(res => {
+          if (!res.ok) {
+            e.preventDefault();
+            if (osName === 'Mac') {
+              window.location.href = 'launch_mac.command';
+            } else {
+              window.location.href = 'launch_windows.bat';
+            }
+          }
+        })
+        .catch(() => {
+          // Fallback launcher
+        });
+    }
+  </script>
+</body>
+</html>
