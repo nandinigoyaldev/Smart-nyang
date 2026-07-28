@@ -1,6 +1,7 @@
 # Dependency directories
 node_modules/
 electron/node_modules/
+dist/
 
 # Python artifacts
 __pycache__/
