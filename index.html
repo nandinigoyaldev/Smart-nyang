@@ -51,10 +51,10 @@
       </div>
 
       <div class="download-btn-group">
-        <a href="dist/NamyangPets-1.0.0.dmg" download="NamyangPets-1.0.0.dmg" class="btn-download btn-mac" id="btn-download-mac" onclick="handleDownload(event, 'Mac')">
+        <a href="dist/NamyangPets-1.0.0.dmg" download="NamyangPets-1.0.0.dmg" class="btn-download btn-mac" id="btn-download-mac">
           <span> Download for Mac (.dmg)</span>
         </a>
-        <a href="dist/NamyangPets-1.0.0.exe" download="NamyangPets-1.0.0.exe" class="btn-download btn-win" id="btn-download-win" onclick="handleDownload(event, 'Windows')">
+        <a href="dist/NamyangPets-1.0.0.exe" download="NamyangPets-1.0.0.exe" class="btn-download btn-win" id="btn-download-win">
           <span>🪟 Download for Windows (.exe)</span>
         </a>
       </div>
@@ -306,32 +306,6 @@
     function toggleFaq(btn) {
       const item = btn.parentElement;
       item.classList.toggle('active');
-    }
-
-    function handleDownload(e, osName) {
-      const targetUrl = e.currentTarget.getAttribute('href');
-      fetch(targetUrl, { method: 'HEAD' })
-        .then(res => {
-          if (!res.ok) {
-            e.preventDefault();
-            if (osName === 'Mac') {
-              const a = document.createElement('a');
-              a.href = 'launch_mac.command';
-              a.download = 'launch_mac.command';
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-            } else {
-              const a = document.createElement('a');
-              a.href = 'launch_windows.bat';
-              a.download = 'launch_windows.bat';
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-            }
-          }
-        })
-        .catch(() => {});
     }
   </script>
 </body>

@@ -33,11 +33,27 @@
         "zip"
       ]
     },
+    "dmg": {
+      "artifactName": "${productName}-${version}.${ext}",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
     "win": {
       "target": [
         "nsis",
         "portable"
-      ]
+      ],
+      "artifactName": "${productName}-${version}.${ext}"
     }
   },
   "devDependencies": {
