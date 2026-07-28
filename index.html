@@ -41,7 +41,7 @@
       </div>
       <h1 class="hero-title">A Living Dog <span>On Your Desktop</span></h1>
       <p class="hero-desc">
-        Namyang Pets sits directly on your screen — 100% transparent, frameless, and floating above all your apps. Organically breathes, wags its tail, reacts to your work, and keeps you company all day long.
+        Namyang Pets sits directly on your screen — 100% transparent, frameless, and floating above all your apps. No terminal commands, no browser tabs, no developer setup. Download, install, and enjoy.
       </p>
 
       <div class="hero-badges">
@@ -51,10 +51,10 @@
       </div>
 
       <div class="download-btn-group">
-        <a href="dist/NamyangPets-1.0.0.dmg" download="NamyangPets-Mac.dmg" class="btn-download btn-mac" id="btn-download-mac" onclick="handleDownload(event, 'Mac')">
+        <a href="dist/NamyangPets-1.0.0.dmg" download="NamyangPets-1.0.0.dmg" class="btn-download btn-mac" id="btn-download-mac">
           <span> Download for Mac (.dmg)</span>
         </a>
-        <a href="dist/NamyangPets-1.0.0.exe" download="NamyangPets-Windows.exe" class="btn-download btn-win" id="btn-download-win" onclick="handleDownload(event, 'Windows')">
+        <a href="dist/NamyangPets-1.0.0.exe" download="NamyangPets-1.0.0.exe" class="btn-download btn-win" id="btn-download-win">
           <span>🪟 Download for Windows (.exe)</span>
         </a>
       </div>
@@ -251,7 +251,7 @@
       <a href="SECURITY.md" target="_blank" class="footer-link">Security Policy</a>
       <a href="LICENSE" target="_blank" class="footer-link">MIT License</a>
     </div>
-    <p>Namyang Pets (Desktop Dog Companion) &copy; 2026 — Free & Open-Source MIT License.</p>
+    <p>Namyang Pets (Desktop Companion) &copy; 2026 — Free & Open-Source MIT License.</p>
   </footer>
 
   <!-- Scripts -->
@@ -306,21 +306,6 @@
     function toggleFaq(btn) {
       const item = btn.parentElement;
       item.classList.toggle('active');
-    }
-
-    function handleDownload(e, osName) {
-      fetch(e.currentTarget.href, { method: 'HEAD' })
-        .then(res => {
-          if (!res.ok) {
-            e.preventDefault();
-            if (osName === 'Mac') {
-              window.location.href = 'launch_mac.command';
-            } else {
-              window.location.href = 'launch_windows.bat';
-            }
-          }
-        })
-        .catch(() => {});
     }
   </script>
 </body>
